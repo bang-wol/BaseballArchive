@@ -77,29 +77,29 @@
 <img width="600" alt="ERD" src="https://github.com/user-attachments/assets/ded34456-15e9-432f-ae63-49ae654704ad" />
 
 ### 테이블 정보
-- **user(사용자 테이블)**  
+- **user(사용자)**  
   - Firebase Authentication을 통해 `uid` 생성 → PK로 사용
   - 닉네임, 프로필 사진, 응원 팀 정보 저장
 
-- **baseball_team(야구 팀 테이블)**  
+- **baseball_team(야구 팀)**  
   - 모든 야구 팀 정보 저장
 
-- **baseball_ranking(야구 순위 테이블)**  
+- **baseball_ranking(야구 순위)**  
   - 팀 순위, 경기 수, 승패, 승률 저장
 
-- **baseball_schedule(경기 일정 테이블)**  
+- **baseball_schedule(경기 일정)**  
   - 홈팀/원정팀, 구장 등 크롤링한 경기 일정 저장
 
-- **archive(직관 기록 테이블)**  
+- **archive(직관 기록)**  
   - 직관 기록, 점수, 날씨, 사진, 공개 여부 저장
 
-- **board(자유게시판 테이블)**  
+- **board(자유게시판)**  
   - 경기 관련 게시글 작성 가능
 
-- **like(좋아요 테이블)**  
+- **like(좋아요)**  
   - `like_archive`, `like_board`로 분리해 직관 기록, 게시글 좋아요 관리
 
-- **comment(댓글 테이블)** 
+- **comment(댓글)** 
   - `comment_archive`, `comment_board`로 분리해 댓글 관리
 
   
@@ -108,7 +108,7 @@
 > **☄️ 왜 Firebase와 PostgreSQL을 함께 사용하나요?**  
 Firebase는 OAuth 로그인 및 인증 관리에 최적화되어 있음. PostgreSQL에서는 사용자의 추가 정보(닉네임, 응원 팀 등)를 관리하여 보안성과 확장성 확보.
 
-> **☄️ 왜 baseball_schedule을 미리 스크래핑해서 DB에 저장하나요?**  
+> **☄️ 왜 경기 일정을 미리 크롤링해서 DB에 저장하나요?**  
 API 호출할 때마다 크롤링을 실행하면 속도가 느려지고 서버 부하가 커짐. 따라서 미리 저장된 데이터를 조회하는 방식으로 성능 최적화.
 
 <br/>
